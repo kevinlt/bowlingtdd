@@ -15,3 +15,9 @@ class TestStep1:
         game = Game()
         game.roll(2)
         assert game.score() == 2
+
+    def test_should_return_5_when_roll_3_and_2(self):
+        game = Game()
+        game.roll(3)
+        game.roll(2)
+        assert game.score() == 5
