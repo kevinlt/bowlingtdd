@@ -10,3 +10,8 @@ class TestStep1:
         game = Game()
         game.roll(1)
         assert game.score() == 1
+
+    def test_should_return_2_when_roll_2(self):
+        game = Game()
+        game.roll(2)
+        assert game.score() == 2

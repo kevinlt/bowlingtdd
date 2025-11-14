@@ -7,4 +7,4 @@ class Game:
         return self._user_score
 
     def roll(self, score: int):
-        self._user_score = 1
+        self._user_score = score
