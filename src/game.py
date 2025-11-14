@@ -2,14 +2,18 @@
 class Game:
 
     _user_score = 0
-    _rolls = 0
+    _rolls = []
+
+    def __init__(self):
+        self._rolls = []
 
     def score(self) -> int:
         return self._user_score
 
     def roll(self, score: int):
-        if self._rolls == 2 and self._user_score == 10:
-            self._user_score += score * 2
-        else:
-            self._user_score += score
-        self._rolls += 1
+        if len(self._rolls) == 2:
+            if sum(self._rolls) == 10:
+                self._user_score += score
+            self._rolls = []
+        self._user_score += score
+        self._rolls.append(score)
