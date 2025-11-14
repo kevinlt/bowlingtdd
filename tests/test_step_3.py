@@ -20,3 +20,9 @@ class TestStep3:
         for _ in [10,1,4,0,0]:
             game.roll(_)
         assert game.score() == 20
+
+    def test_should_return_60_when_roll_10_10_10_0(self):
+        game = Game()
+        for _ in [10,10,10,0]:
+            game.roll(_)
+        assert game.score() == 60

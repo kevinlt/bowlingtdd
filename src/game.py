@@ -29,6 +29,6 @@ class Game:
     def _process_strike(self, score: int):
         self._bonus.append(score)
         if len(self._bonus) == 2:
-            self._user_score += sum(self._bonus)
+            self._user_score += min(10,sum(self._bonus))
             self._striked = False
             self._bonus = []
