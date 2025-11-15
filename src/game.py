@@ -3,7 +3,6 @@ class Game:
 
     _user_score = 0
     _rolls = []
-    _striked = 0
     _bonus = 0
     _throws = 0
 
@@ -33,8 +32,10 @@ class Game:
             self._bonus += 2
 
     def _process_bonus(self, score: int):
-        if self._bonus > 0 and self._throws < 20:
+        if self._bonus > 0 and (self._throws < 20 or score == 10):
             if self._bonus > 2:
                 self._user_score += score
             self._user_score += score
             self._bonus -= 1
+        elif self._throws > 20 and score == 10:
+            self._user_score += score
