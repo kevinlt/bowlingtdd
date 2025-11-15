@@ -5,6 +5,7 @@ class Game:
     _rolls = []
     _striked = 0
     _bonus = 0
+    _throws = 0
 
     def __init__(self):
         self._rolls = []
@@ -18,6 +19,7 @@ class Game:
         self._spare(score)
         self._user_score += score
         self._rolls.append(score)
+        self._throws += 1
 
     def _spare(self, score: int):
         if len(self._rolls) == 2:
@@ -27,10 +29,11 @@ class Game:
 
     def _strike(self, score: int):
         if score == 10:
+            self._throws += 1
             self._bonus += 2
 
     def _process_bonus(self, score: int):
-        if self._bonus > 0:
+        if self._bonus > 0 and self._throws < 20:
             if self._bonus > 2:
                 self._user_score += score
             self._user_score += score
